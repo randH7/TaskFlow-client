@@ -3,6 +3,8 @@ import {FormGroup, FormControl, Validators } from '@angular/forms'; // Import ne
 import { AuthService } from '../../services/auth-service.service';
 import { UserSignUp } from '../../models/user-signup.model';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
+
 
 @Component({
   selector: 'app-signup-page',
@@ -20,7 +22,7 @@ export class SignupPageComponent {
   passwordInput: FormControl;
   roleInput: FormControl;
  
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService, private router: Router, private toast: NgToastService) {
 
     this.nameInput = new FormControl("", Validators.required);
     this.usernameInput = new FormControl("", Validators.required);
@@ -51,23 +53,31 @@ export class SignupPageComponent {
         this.signupForm.value.jobTitle
       );
 
-      console.log(user);
-
       const userType = this.signupForm.value.role;
 
       this.authService.signUp(user, userType).subscribe({
           next: (response) => {
             console.log(response);
+            this.openSuccess(response.error)
             this.router.navigate(['/login']);
           },
           error: (error) => {
-            console.error(error);
+            this.openError(error.error)
+            console.error(error.error);
           }
         });
 
       this.signupForm.reset();
 
     }
+  }
+
+  openSuccess(response: any) {
+    this.toast.success({detail:"Success", summary:response, duration:6000, position:'bottomRight'});
+  }
+
+  openError(error: any) {
+    this.toast.error({detail:"Error", summary:error, duration:6000, position:'bottomRight'});
   }
 
 }

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgToastModule } from 'ng-angular-popup'
 
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
@@ -11,6 +12,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { SignupPageComponent } from './components/signup-page/signup-page.component';
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
+import { DashboardMComponent } from './components/manager/dashboard-m/dashboard-m.component';
+import { DashboardEComponent } from './components/employ/dashboard-e/dashboard-e.component';
 
 
 @NgModule({
@@ -21,13 +24,16 @@ import { ContactPageComponent } from './components/contact-page/contact-page.com
     NavBarComponent,
     LoginPageComponent,
     SignupPageComponent,
-    ContactPageComponent
+    ContactPageComponent,
+    DashboardMComponent,
+    DashboardEComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]
