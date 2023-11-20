@@ -5,6 +5,7 @@ body{
     justify-content: center;
     flex-direction: column;
     height: 100vh;
+    font-family: var(--primary-font);
 }
 
 .container{
@@ -34,14 +35,20 @@ body{
     justify-content: center;
     flex-direction: column;
     padding: 0 40px;
-
     height: 100%;
 }
 
+.error-msg p{
+    margin: 0px;
+    font-size: 10px;
+    color: var(--error-color);
+}
+
 .container input{
+    font-family: var( --primary-font);
     background-color: #eee;
     border: none;
-    margin-bottom: 15px;
+    margin-top: 15px;
     padding: 10px 15px;
     font-size: 13px;
     border-radius: 8px;
@@ -50,9 +57,17 @@ body{
 }
 
 button {
+    margin-top: 15px;
     font-weight: 500;
     padding: 13px 20px;
 }
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
 
 .form-container{
     position: absolute;

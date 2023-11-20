@@ -7,6 +7,9 @@
     --primary3-color: #F6F6F6;
     --shade1-color: #467F82;
     --tint1-color: #78eae9;
+    --success-color: #51C98F;
+    --warning-color: #F8AE6C;
+    --error-color: #E4546A;
     --primary-font: 'Poppins', sans-serif;
 }
 
@@ -150,10 +153,11 @@ section {
 
 /* HEADER */
 header {
-padding: 1rem 0;
-width: 100%;
-position: absolute;
-z-index: 999;
+    background-color: #fff;
+    padding: 1rem 0;
+    width: 100%;
+    position: absolute;
+    z-index: 10001;
 }
 
 .header__logo {

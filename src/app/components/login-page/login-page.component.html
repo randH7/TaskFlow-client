@@ -4,11 +4,16 @@
     <div class="container" id="container">
 
         <div class="form-container login">
-            <form>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 <h1>Login</h1>
-                <input type="text" placeholder="Username">
-                <input type="password" placeholder="Password">
-                <button class="btn btn-primary">Login</button>
+                <input type="text" placeholder="Username" formControlName="username">
+                <div class="error-msg"><p class="error-msg" *ngIf="usernameInput.invalid && usernameInput.touched">Username is required</p></div>
+
+                <input type="password" placeholder="Password" formControlName="password">
+                <div class="error-msg"><p class="error-msg" *ngIf="passwordInput.hasError('required') && passwordInput.touched">Password is required</p></div>
+                <div class="error-msg"><p class="error-msg" *ngIf="passwordInput.hasError('minlength') && passwordInput.touched">Password must be at least 8 characters long</p></div>
+
+                <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
             </form>
         </div>
 

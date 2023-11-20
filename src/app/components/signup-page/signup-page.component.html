@@ -4,14 +4,33 @@
     <div class="container" id="container">
 
         <div class="form-container sign-up">
-            <form>
+            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
                 <h1>Create Account</h1>
-                <input type="text" placeholder="Name">
-                <input type="text" placeholder="Username">
-                <input type="text" placeholder="Job title">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button class="btn btn-primary">Sign up</button>
+                <input type="text" placeholder="Name" formControlName="name">
+                <div class="error-msg"><p *ngIf="nameInput.hasError('required') && nameInput.touched">Name is required</p></div>
+
+                <input type="text" placeholder="Username" formControlName="username">
+                <div class="error-msg"><p class="error-msg" *ngIf="usernameInput.invalid && usernameInput.touched">Username is required</p></div>
+
+                <input type="text" placeholder="Job title" formControlName="jobTitle">
+                <div class="error-msg"><p class="error-msg" *ngIf="jobTitleInput.invalid && jobTitleInput.touched">Job title is required</p></div>
+
+                <input type="email" placeholder="Email" formControlName="email">
+                <div class="error-msg"><p class="error-msg" *ngIf="emailInput.hasError('required') && emailInput.touched">Email is required</p></div>
+                <div class="error-msg"><p class="error-msg" *ngIf="emailInput.hasError('email') && emailInput.touched">Please enter a valid email address</p></div>
+
+                <input type="password" placeholder="Password" formControlName="password">
+                <div class="error-msg"><p class="error-msg" *ngIf="passwordInput.hasError('required') && passwordInput.touched">Password is required</p></div>
+                <div class="error-msg"><p class="error-msg" *ngIf="passwordInput.hasError('minlength') && passwordInput.touched">Password must be at least 8 characters long</p></div>
+
+                <div class="radio">
+                    <input class="radio__input" type="radio" value="manager" id="radio1" formControlName="role">
+                    <label class="radio__label" for="radio1">Manager</label>
+                    <input class="radio__input" type="radio" value="employ" id="radio2" formControlName="role">
+                    <label class="radio__label" for="radio2">Employ</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary" [disabled]="signupForm.invalid">Sign up</button>
             </form>
         </div>
     
