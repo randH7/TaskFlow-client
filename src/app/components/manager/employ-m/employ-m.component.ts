@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+declare function sideBarAction(elementId: string, elementId2: string): void;
+
 @Component({
   selector: 'app-employ-m',
   templateUrl: './employ-m.component.html',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class EmployMComponent {
 
+  sideBarAction(): void {
+    console.log(11)
+    sideBarAction(".sidebar", ".bx-menu");
+  }
+  
 }

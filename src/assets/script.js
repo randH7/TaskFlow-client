@@ -7,7 +7,6 @@ function changeColor(elementId, color) {
 }
 
 
-// 24:45
 function sideBarAction(elementId, elementId2) {
 
     let sidebar = document.querySelector(elementId)
