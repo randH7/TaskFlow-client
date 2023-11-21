@@ -16,5 +16,5 @@ export class SideNavBarComponent {
   }
 
   // collapsed = true;
-  // navData = navbarData;
+  navData = navbarData;
 }

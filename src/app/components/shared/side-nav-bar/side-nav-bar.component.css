@@ -107,9 +107,15 @@
 }
 
 .sidebar .nav-links li:hover {
-    
-    background-color: #1d1b31;
+    color: #1d1b31;
+    background-color: #fff;
 }
+
+.sidebar .nav-links li:hover i,
+.sidebar .nav-links li:hover a .link_name {
+    color: #1d1b31;
+}
+
 
 .sidebar .nav-links li i {
     height: 50px;
@@ -143,14 +149,14 @@
 .sidebar .nav-links li .sub-menu {
     padding: 6px 6px 14px 80px;
     margin-top: -10px;
-    background: #1d1b31;
+    background: #fff;
     display: none;
 }
 
 .sidebar .nav-links li .sub-menu a{
-    color: #fff;
+    color: #1d1b31;
     font-size: 15px;
-    padding: 5px 0;
+    padding: 7px 0;
     white-space: nowrap;
     opacity: 0.6;
     transition: all 0.3s ease;
@@ -193,7 +199,7 @@
 .sidebar .nav-links li .sub-menu.blank {
     opacity: 1;
     pointer-events: auto;
-    padding: 3px 20px 6px 16px;
+    padding: 4px 20px 5.5px 16px;
     opacity: 0;
     pointer-events: none;
 }

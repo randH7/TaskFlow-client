@@ -6,40 +6,13 @@
     </div>
 
     <ul class="nav-links">
-        <li class="row-link">
-            <a href=".">
-                <i class='bx bx-grid-alt'></i> 
-                <span class="link_name">Dashboard</span>
+        <li class="row-link" *ngFor="let data of navData">
+            <a [routerLink]="[data.routeLink]">
+                <i [class]='data.icon'></i> 
+                <span class="link_name">{{data.label}}</span>
             </a>
             <ul class="sub-menu blank">
-                <li><a class="link_name" href="#">Dashboard</a></li>  
-            </ul>
-        </li>
-        <li class="row-link">
-            <a href=".">
-                <i class='bx bx-briefcase'></i>
-                <span class="link_name">Project</span>
-            </a>
-            <ul class="sub-menu blank">
-                <li><a class="link_name" href="#">Project</a></li>  
-            </ul>
-        </li>
-        <li class="row-link">
-            <a href=".">
-                <i class='bx bx-user'></i>
-                <span class="link_name">Employ</span>
-            </a>
-            <ul class="sub-menu blank">
-                <li><a class="link_name" href="#">Employ</a></li>  
-            </ul>
-        </li>
-        <li class="row-link">
-            <a href=".">
-                <i class='bx bx-cog' ></i>
-                <span class="link_name">Settings</span>
-            </a>
-            <ul class="sub-menu blank">
-                <li><a class="link_name" href="#">Settings</a></li>  
+                <li><a class="link_name" [routerLink]="[data.routeLink]">{{data.label}}</a></li>  
             </ul>
         </li>
 

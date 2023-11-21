@@ -11,6 +11,9 @@ import { DashboardEComponent } from './components/employ/dashboard-e/dashboard-e
 import { AuthGuardService } from './services/guard/auth-guard.service';
 import { ManagerGuardService } from './services/guard/manager-guard.service';
 import { EmployGuardService } from './services/guard/employ-guard.service';
+import { ProjectMComponent } from './components/manager/project-m/project-m.component';
+import { EmployMComponent } from './components/manager/employ-m/employ-m.component';
+import { SettingsMComponent } from './components/manager/settings-m/settings-m.component';
 
 const routes: Routes = [
   {
@@ -36,6 +39,21 @@ const routes: Routes = [
   {
     path: 'dashboard-m',
     component: DashboardMComponent,
+    canActivate: [AuthGuardService, ManagerGuardService]
+  },
+  {
+    path: 'project-m',
+    component: ProjectMComponent,
+    canActivate: [AuthGuardService, ManagerGuardService]
+  },
+  {
+    path: 'employ-m',
+    component: EmployMComponent,
+    canActivate: [AuthGuardService, ManagerGuardService]
+  },
+  {
+    path: 'settings-m',
+    component: SettingsMComponent,
     canActivate: [AuthGuardService, ManagerGuardService]
   },
   {
