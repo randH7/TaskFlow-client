@@ -63,6 +63,7 @@ button {
 }
 
 button:disabled {
+    background-color: var(--primary1-color);
     opacity: 0.5;
     cursor: not-allowed;
     box-shadow: none;

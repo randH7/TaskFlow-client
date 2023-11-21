@@ -5,7 +5,7 @@
 
         <div class="form-container sign-up">
             <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-                <h1>Create Account</h1>
+                <h1 class="title">Create Account</h1>
                 <input type="text" placeholder="Name" formControlName="name">
                 <div class="error-msg"><p *ngIf="nameInput.hasError('required') && nameInput.touched">Name is required</p></div>
 

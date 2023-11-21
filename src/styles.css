@@ -44,6 +44,20 @@ hr {
     border-radius: 50px;
 }
 
+::-webkit-scrollbar {
+    width: 10px; 
+}
+  
+::-webkit-scrollbar-track {
+    background-color: #252323; 
+}
+  
+::-webkit-scrollbar-thumb {
+    background-color: #524e4e;
+    border: 3.5px solid #252323;
+    border-radius: 20px;
+}
+
 /* UTILITY CLASSES*/
 .container {
     width: 100%;
@@ -88,6 +102,35 @@ hr {
     outline: none;
     transition: all 0.3s;
 }
+
+.btn-delete {
+    background-color: var(--error-color);
+    font-size: 1rem;
+    color: #fff;
+}
+
+.btn-delete:hover {
+    background-color: #ce364d;
+    color: #fff;
+}
+
+.btn-warning {
+    background-color: var(--warning-color);
+    font-size: 1rem;
+    color: #fff;
+}
+
+.btn-warning:hover {
+    background-color: #f19d54;
+    color: #fff;
+}
+
+/* Remove box shadow for all buttons on :active state */
+.btn:active,
+.btn:focus {
+  box-shadow: none;
+  /* You can also set other styles for the active state if needed */
+} 
 
 .btn-primary {
     background-color: var(--primary1-color);
@@ -371,7 +414,7 @@ footer {
     transition: color 0.3s;
 }
 
-.footer__menu-title:hover {
+.footer__menu-title a:hover{
     color: var(--primary1-color);
 }
 
@@ -387,6 +430,10 @@ footer {
 .footer_bottom-icons {
     display: flex;
     gap: 1rem;
+}
+
+.footer_bottom-icons a:hover{
+    color: var(--primary1-color);
 }
 
     
@@ -409,7 +456,7 @@ footer {
     top: 0;
     left: 0;
     height: 100%;
-    width: 260px;
+    width: 270px;
     background-color: var(--primary3-color);
     z-index: 100;
     transition: all 0.5s ease;
@@ -585,10 +632,9 @@ footer {
 }
 
 .sidebar .profile-details {
-    width: 260px;
     position: fixed;
     bottom: 0;
-    width: 260px;
+    width: 270px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -668,8 +714,8 @@ footer {
     padding: 0 30px;
     position: relative;
     height: 100vh;
-    left: 260px;
-    width: calc(100% - 260px);
+    left: 270px;
+    width: calc(100% - 270px);
     transition: all 0.5s ease;
 }
 
@@ -702,10 +748,10 @@ footer {
 }
 
 /* CARD LIST */
-.container {
-    height: 90vh;
+.container_content {
+    height: 86vh;
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
   }
   
@@ -714,14 +760,13 @@ footer {
     background-color: var(--warning-color);
     padding: 50px;
     border-radius: 8px;
-    margin: 250px 15px;
+    margin: 150px 15px;
     font-size: 20px;
     text-align: center;
     font-weight: 500;
   }
   
   .container_list {
-    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
   }
@@ -730,14 +775,14 @@ footer {
     width: 400px;
     border: 1px solid #ddd;
     padding: 16px;
-    margin: 16px;
+    margin: 0 16px 16px 0;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
     cursor: pointer;
   }
 
   .card:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
     
   .card h2 {
@@ -788,3 +833,29 @@ span.status-Completed {
     border-radius: 5px;
     font-size: 12px;
   }
+
+/* DETAILS */
+  .container_details {
+    padding: 20px;
+    border-radius: 16px;
+    width: 100%;
+    background-color: var(--primary3-color);
+}
+
+.container_details .container_details_all {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 16px;
+    width: 100%;
+    background-color: #fff;
+}
+
+.container_details .container_details_all .description {
+    font-size: 20px;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}

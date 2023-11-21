@@ -12,7 +12,21 @@ declare function sideBarAction(elementId: string, elementId2: string): void;
 })
 export class SideNavBarComponent {
 
-  constructor(private authService: AuthService, private router: Router) {}
+  navData = navbarData;
+  
+  private currentUserString: string | null  = localStorage.getItem('currentUser');
+  public userName: string = '';
+  public jobTitle: string = '';
+
+  constructor(private authService: AuthService, private router: Router) {
+
+    const currentUser = JSON.parse(this.currentUserString as string);
+
+    if (currentUser) {
+      this.userName = currentUser.employName;
+      this.jobTitle = currentUser.jobTitle;
+    }
+  }
 
   logout(): void {
     this.authService.logout();
@@ -25,6 +39,4 @@ export class SideNavBarComponent {
     sideBarAction(".sidebar", ".bx-menu");
   }
 
-  // collapsed = true;
-  navData = navbarData;
 }

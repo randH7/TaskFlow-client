@@ -6,24 +6,24 @@
 
     <div class="selected-content">
         <!-- <i class="bx bx-menu" (click)="sideBarAction()"></i> -->
-        <span class="text">Project</span>
+        <span class="text">Projects</span>
         <button class="btn btn-primary">+ Add</button>
     </div>
 
-    <div class="container">
+    <div class="container_content">
    
-        <div *ngIf="projects.length == 0; else projectList">
-            <span class="error_message">There are no Projects Added. Let's start create one</span>
+        <div *ngIf="projects.length == 0; else projectList" class="error_message">
+            <span>There are no Projects Added. Let's start create one</span>
         </div>
             
         <ng-template #projectList>
             <div class="container_list">
-                <div *ngFor="let project of projects" class="card">
+                <div *ngFor="let project of projects" class="card" [routerLink]="['/project-m', project.projectId]">
                     <h2>{{ project.projectName }}</h2>
                     <span>{{ project.dueDate }}</span>
-                    <span>{{ project.manager }}</span>
+                    <span>Manager: {{ project.manager }}</span>
                     <div class="last_row">
-                        <span>{{ project.leader}}</span>
+                        <span>Leader: {{ project.leader}}</span>
                         <span  
                         [ngClass]="{'status-Completed': project.projectStatus == 'COMPLETED', 
                         'status-InProgress': project.projectStatus == 'IN_PROGRESS', 

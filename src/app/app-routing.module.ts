@@ -14,6 +14,7 @@ import { EmployGuardService } from './services/guard/employ-guard.service';
 import { ProjectMComponent } from './components/manager/project-m/project-m.component';
 import { EmployMComponent } from './components/manager/employ-m/employ-m.component';
 import { SettingsMComponent } from './components/manager/settings-m/settings-m.component';
+import { ProjectDetailsMComponent } from './components/manager/project-details-m/project-details-m.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,11 @@ const routes: Routes = [
   {
     path: 'project-m',
     component: ProjectMComponent,
+    canActivate: [AuthGuardService, ManagerGuardService]
+  },
+  { 
+    path: 'project-m/:projectId', 
+    component: ProjectDetailsMComponent,
     canActivate: [AuthGuardService, ManagerGuardService]
   },
   {

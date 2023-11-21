@@ -1,16 +1,16 @@
 body{
-    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    height: 100vh;
-    font-family: var(--primary-font);
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .container{
     padding: 100px;
-    margin-top: 150px;
+    margin: 100px 0;
     background-color: #fff;
     border-radius: 30px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
@@ -19,6 +19,10 @@ body{
     width: 768px;
     max-width: 100%;
     min-height: 580px;
+}
+
+.container h1 {
+    font-size: 35px;
 }
 
 .container p{
@@ -92,6 +96,7 @@ body{
 .radio__input:checked + .radio__label {
     color: #fff;
     background: var(--primary1-color);
+    transition: background 0.7s;
 }
 
 button {
@@ -101,6 +106,7 @@ button {
 }
 
 button:disabled {
+    background-color: var(--primary1-color);
     opacity: 0.5;
     cursor: not-allowed;
     box-shadow: none;

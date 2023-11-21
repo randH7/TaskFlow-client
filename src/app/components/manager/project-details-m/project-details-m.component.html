@@ -1,0 +1,50 @@
+<app-side-nav-bar></app-side-nav-bar>
+
+<body class="content_next_to_side_bar">
+    
+<div class="selected-section">
+
+    <div class="selected-content">
+        <!-- <i class="bx bx-menu" (click)="sideBarAction()"></i> -->
+        <span *ngIf="project != null" class="text">Project / Details</span>
+        <div class="buttons">
+            <button class="btn btn-warning"><i class='bx bx-edit-alt'></i></button>
+            <button class="btn btn-delete" (click)="deleteProject()"><i class='bx bx-trash'></i></button>    
+        </div>
+    </div>
+
+    <div class="container_content">
+   
+        <div *ngIf="project == null; else projectDetails">
+            <span class="error_message">There are no Projects Added. Let's start create one</span>
+        </div>
+            
+        <ng-template #projectDetails>
+
+                <div class="container_details">
+                    <h2>{{ project.detailsProjectDTO.projectName }}</h2>
+                    <div class="container_details_all">
+                        <span class="description">Description: {{ project.detailsProjectDTO.description}}</span> <br>
+                        <span>{{ project.detailsProjectDTO.startDate }} • {{ project.detailsProjectDTO.dueDate }}</span>
+                        <span>Manager: {{ project.detailsProjectDTO.manager }}</span>
+                        <div class="last_row">
+                            <span>Leader: {{ project.detailsProjectDTO.leader}}</span>
+                            <span  
+                            [ngClass]="{'status-Completed': project.detailsProjectDTO.projectStatus == 'COMPLETED', 
+                            'status-InProgress': project.detailsProjectDTO.projectStatus == 'IN_PROGRESS', 
+                            'status-AtRisk': project.detailsProjectDTO.projectStatus == 'AT_RISK',
+                            'status-Archived': project.detailsProjectDTO.projectStatus == 'ARCHIVED'}">
+                            {{ project.detailsProjectDTO.projectStatus | titleCase}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+        </ng-template>
+    
+    </div>
+
+</div>
+
+
+</body>
