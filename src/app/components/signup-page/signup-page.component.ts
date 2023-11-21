@@ -58,7 +58,7 @@ export class SignupPageComponent {
       this.authService.signUp(user, userType).subscribe({
           next: (response) => {
             console.log(response);
-            this.openSuccess(response.error)
+            this.openSuccess(response)
             this.router.navigate(['/login']);
           },
           error: (error) => {

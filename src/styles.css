@@ -640,11 +640,13 @@ footer {
     display: none;
 }
 
+.content_next_to_side_bar {
+    background-color: aqua;
+  }
+
 .selected-section {
-    margin: 0;
-    padding: 0;
+    padding: 0 30px;
     position: relative;
-    background: #E4E9F7;
     height: 100vh;
     left: 260px;
     width: calc(100% - 260px);
@@ -657,9 +659,10 @@ footer {
 } 
 
 .selected-section .selected-content {
+    align-items: center;
+    justify-content: space-between;
     height: 60px;
     display: flex;
-    align-items: center;
 }
 
 .selected-section .selected-content .bx-menu,
@@ -669,7 +672,7 @@ footer {
 }
 
 .selected-section .selected-content .bx-menu {
-    margin: 0 15px;
+    /* margin: 0 15px; */
     cursor: pointer;
 }
 
@@ -677,3 +680,85 @@ footer {
     font-size: 26px;
     font-weight: 600;
 }
+
+/* CARD LIST */
+.container {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .error_message{
+    color: #fff;
+    background-color: var(--warning-color);
+    padding: 50px;
+    border-radius: 8px;
+    margin: 250px 15px;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  .container_list {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    width: 370px;
+    border: 1px solid #ddd;
+    padding: 16px;
+    margin: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+    
+  .card h2 {
+      color: #333;
+  }
+    
+  .card span {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .last_row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+    
+/* STATUS */
+span.status-Completed {
+    color: #51C98F;
+    background-color: #D7F2E5;
+    padding: 5px 6px;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+  
+  span.status-InProgress {
+    color: #F8AE6C ;
+    background-color: #FFEDDD;
+    padding: 5px 6px;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+  
+  span.status-AtRisk {
+    color: #E4546A;
+    background-color: #FBE2E6;
+    padding: 5px 6px;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+  
+  span.status-Archived {
+    color: #A965FF;
+    background-color: #EFE7F9;
+    padding: 5px 6px;
+    border-radius: 5px;
+    font-size: 12px;
+  }

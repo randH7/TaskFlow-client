@@ -1,9 +1,44 @@
 <app-side-nav-bar></app-side-nav-bar>
 
+<body class="content_next_to_side_bar">
+    
 <div class="selected-section">
+
     <div class="selected-content">
-        <i class="bx bx-menu" (click)="sideBarAction()"></i>
+        <!-- <i class="bx bx-menu" (click)="sideBarAction()"></i> -->
         <span class="text">Project</span>
+        <button class="btn btn-primary">+ Add</button>
     </div>
+
+    <div class="container">
+   
+        <div *ngIf="projects.length == 0; else projectList">
+            <span class="error_message">There are no Projects Added. Let's start create one</span>
+        </div>
+            
+        <ng-template #projectList>
+            <div class="container_list">
+                <div *ngFor="let project of projects" class="card">
+                    <h2>{{ project.projectName }}</h2>
+                    <span>{{ project.dueDate }}</span>
+                    <span>{{ project.manager }}</span>
+                    <div class="last_row">
+                        <span>{{ project.leader}}</span>
+                        <span  
+                        [ngClass]="{'status-Completed': project.projectStatus == 'COMPLETED', 
+                        'status-InProgress': project.projectStatus == 'IN_PROGRESS', 
+                        'status-AtRisk': project.projectStatus == 'AT_RISK',
+                        'status-Archived': project.projectStatus == 'ARCHIVED'}">
+                        {{ project.projectStatus | titleCase}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    
+    </div>
+
 </div>
 
+
+</body>
