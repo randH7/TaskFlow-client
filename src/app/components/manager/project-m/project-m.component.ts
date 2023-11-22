@@ -26,10 +26,6 @@ export class ProjectMComponent implements OnInit {
   employeesUsernameInput: FormControl;
 
 
-  toppings = new FormControl();
-  toppingList: string[] = ['Pepperoni', 'Mushrooms', 'Onions', 'Sausage', 'Bacon', 'Extra cheese'];
-
-
   constructor(private projectService: ProjectService, private toast: NgToastService) {
     this.projectNameInput = new FormControl("", Validators.required);
     this.leaderUsernameInput = new FormControl("", Validators.required);
@@ -64,12 +60,10 @@ export class ProjectMComponent implements OnInit {
 
 
   onSubmit() {
-    console.log(1)
 
 
     const resultArray = this.projectForm.value.employeesUsername.split(', ');
 
-    // if (this.projectForm.valid) {
       const newProject: ProjectAddDTO = new ProjectAddDTO (
         this.projectForm.value.projectName,
         this.projectForm.value.leaderUsername,
@@ -93,15 +87,13 @@ export class ProjectMComponent implements OnInit {
         }
       });
 
-      console.log('z')
       this.projectForm.reset();
     
-    // }
+
 
   }
 
   sideBarAction(): void {
-    console.log(11)
     sideBarAction(".sidebar", ".bx-menu");
   }
 
