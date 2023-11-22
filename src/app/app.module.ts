@@ -5,6 +5,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgToastModule } from 'ng-angular-popup';
 import { TitleCasePipe } from '../app/pipe/titlecase.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
 
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
@@ -20,6 +23,7 @@ import { ProjectMComponent } from './components/manager/project-m/project-m.comp
 import { EmployMComponent } from './components/manager/employ-m/employ-m.component';
 import { SettingsMComponent } from './components/manager/settings-m/settings-m.component';
 import { ProjectDetailsMComponent } from './components/manager/project-details-m/project-details-m.component';
+
 
 
 @NgModule({
@@ -45,7 +49,10 @@ import { ProjectDetailsMComponent } from './components/manager/project-details-m
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgToastModule
+    NgToastModule,
+    BrowserAnimationsModule,
+    MatSelectModule,
+    MatOptionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

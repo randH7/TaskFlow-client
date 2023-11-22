@@ -199,8 +199,8 @@ header {
     background-color: #fff;
     padding: 1rem 0;
     width: 100%;
-    position: absolute;
-    z-index: 10001;
+    /* position: absolute; */
+    /* z-index: 100; */
 }
 
 .header__logo {
@@ -859,3 +859,6 @@ span.status-Completed {
     display: flex;
     gap: 10px;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

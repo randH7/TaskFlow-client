@@ -8,6 +8,7 @@ body{
     padding: 0 1rem;
 }
 
+
 .container{
     padding: 100px;
     margin: 100px 0;
@@ -19,14 +20,18 @@ body{
     width: 768px;
     max-width: 100%;
     min-height: 580px;
+    overflow-y: hidden;
+    scrollbar-width: 0;
 }
 
-.container h1 {
-    font-size: 35px;
+.container h1{
+    font-family: var(--primary-font);
+    font-size: 30px;
+    font-weight:500;
 }
 
 .container p{
-    font-size: 14px;
+    font-size: 18px;
     line-height: 20px;
     letter-spacing: 0.3px;
     margin: 20px 0;

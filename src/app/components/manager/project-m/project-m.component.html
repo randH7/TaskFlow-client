@@ -2,43 +2,95 @@
 
 <body class="content_next_to_side_bar">
     
-<div class="selected-section">
+    <div class="selected-section">
 
-    <div class="selected-content">
-        <!-- <i class="bx bx-menu" (click)="sideBarAction()"></i> -->
-        <span class="text">Projects</span>
-        <button class="btn btn-primary">+ Add</button>
-    </div>
-
-    <div class="container_content">
-   
-        <div *ngIf="projects.length == 0; else projectList" class="error_message">
-            <span>There are no Projects Added. Let's start create one</span>
+        <div class="selected-content">
+            <!-- <i class="bx bx-menu" (click)="sideBarAction()"></i> -->
+            <span class="text">Projects</span>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newProjectModal">+ Add</button>
         </div>
-            
-        <ng-template #projectList>
-            <div class="container_list">
-                <div *ngFor="let project of projects" class="card" [routerLink]="['/project-m', project.projectId]">
-                    <h2>{{ project.projectName }}</h2>
-                    <span>{{ project.dueDate }}</span>
-                    <span>Manager: {{ project.manager }}</span>
-                    <div class="last_row">
-                        <span>Leader: {{ project.leader}}</span>
-                        <span  
-                        [ngClass]="{'status-Completed': project.projectStatus == 'COMPLETED', 
-                        'status-InProgress': project.projectStatus == 'IN_PROGRESS', 
-                        'status-AtRisk': project.projectStatus == 'AT_RISK',
-                        'status-Archived': project.projectStatus == 'ARCHIVED'}">
-                        {{ project.projectStatus | titleCase}}
-                        </span>
+    
+        
+        <div class="container_content">
+       
+            <div *ngIf="projects.length == 0; else projectList" class="error_message">
+                <span>There are no Projects Added. Let's start create one</span>
+            </div>
+                
+            <ng-template #projectList>
+                <div class="container_list">
+                    <div *ngFor="let project of projects" class="card" [routerLink]="['/project-m', project.projectId]">
+                        <h2>{{ project.projectName }}</h2>
+                        <span>{{ project.dueDate }}</span>
+                        <span>Manager: {{ project.manager }}</span>
+                        <div class="last_row">
+                            <span>Leader: {{ project.leader}}</span>
+                            <span  
+                            [ngClass]="{'status-Completed': project.projectStatus == 'COMPLETED', 
+                            'status-InProgress': project.projectStatus == 'IN_PROGRESS', 
+                            'status-AtRisk': project.projectStatus == 'AT_RISK',
+                            'status-Archived': project.projectStatus == 'ARCHIVED'}">
+                            {{ project.projectStatus | titleCase}}
+                            </span>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </ng-template>
+            </ng-template>
+        
+        </div>
     
     </div>
 
-</div>
-
 
 </body>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="newProjectModal" tabindex="-1" aria-labelledby="newProjectModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="newProjectModalLabel">New Project</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            
+
+
+            <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                  <label for="projectName" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="projectName" formControlName="projectName">
+                </div>
+                <div class="mb-3">
+                  <label for="leaderUsername" class="form-label">Leader Username</label>
+                  <input type="text" class="form-control" id="leaderUsername" formControlName="leaderUsername">
+                </div>
+                <div class="mb-3">
+                  <label for="startDate" class="form-label">Start Date</label>
+                  <input type="text" class="form-control" id="startDate" formControlName="startDate">
+                </div>
+                <div class="mb-3">
+                    <label for="dueDate" class="form-label">Due Date</label>
+                    <input type="text" class="form-control" id="dueDate" formControlName="dueDate">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="description" formControlName="description">
+                </div>
+                <div class="mb-3">
+                    <label for="employeesUsername" class="form-label">Employees</label>
+                    <input type="text" class="form-control" id="employeesUsername" formControlName="employeesUsername">
+                </div>
+            </form>
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="onSubmit()">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
