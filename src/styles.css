@@ -845,6 +845,7 @@ span.status-Completed {
 .container_details .container_details_all {
     display: flex;
     flex-direction: column;
+    margin-top: 15px;
     padding: 20px;
     border-radius: 16px;
     width: 100%;

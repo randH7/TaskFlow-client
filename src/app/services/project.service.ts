@@ -38,6 +38,17 @@ export class ProjectService {
     return this.http.get(url, options);
   }
 
+  editProject(projectDTO: any, projectId: any): Observable<any>{
+    console.log(projectDTO)
+  console.log(Object)
+    const options: Object = {
+      headers: this.getAuthHeader(),
+      responseType: 'text'
+    };
+    const url = `${this.baseUrl}/edit-project/${projectId}`;
+    return this.http.patch(url, projectDTO, options);
+  }
+
   deleteProject(projectId: number) {
     const options: Object = {
       headers: this.getAuthHeader(),

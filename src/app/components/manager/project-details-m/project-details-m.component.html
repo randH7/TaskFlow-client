@@ -8,7 +8,7 @@
         <!-- <i class="bx bx-menu" (click)="sideBarAction()"></i> -->
         <span *ngIf="project != null" class="text">Project / Details</span>
         <div class="buttons">
-            <button class="btn btn-warning"><i class='bx bx-edit-alt'></i></button>
+            <button class="btn btn-warning" (click)="editProject()" data-bs-toggle="modal" data-bs-target="#editProjectModal"><i class='bx bx-edit-alt'></i></button>
             <button class="btn btn-delete" (click)="deleteProject()"><i class='bx bx-trash'></i></button>    
         </div>
     </div>
@@ -30,13 +30,19 @@
                         <div class="last_row">
                             <span>Leader: {{ project.detailsProjectDTO.leader}}</span>
                             <span  
-                            [ngClass]="{'status-Completed': project.detailsProjectDTO.projectStatus == 'COMPLETED', 
+                            [ngClass]="{'status-Completed': project.detailsProjectDTO.projectStatus == 'COMPLETES', 
                             'status-InProgress': project.detailsProjectDTO.projectStatus == 'IN_PROGRESS', 
                             'status-AtRisk': project.detailsProjectDTO.projectStatus == 'AT_RISK',
                             'status-Archived': project.detailsProjectDTO.projectStatus == 'ARCHIVED'}">
                             {{ project.detailsProjectDTO.projectStatus | titleCase}}
                             </span>
                         </div>
+                    </div>
+                    <div class="container_details_all">
+                        <span class="description">Team Members:</span>
+                        <ol>
+                            <li *ngFor="let employeesName of project.employeesNames; let i = index;">{{i+1}} - {{ employeesName }}</li>
+                        </ol>
                     </div>
                 </div>
 
@@ -48,3 +54,63 @@
 
 
 </body>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="editProjectModal" tabindex="-1" aria-labelledby="editProjectModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="editProjectModalLabel">Edit Project</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            
+
+
+            <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                  <label for="projectName" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="projectName" formControlName="projectName">
+                </div>
+                <div class="mb-3">
+                  <label for="leaderUsername" class="form-label">Leader Username</label>
+                  <input type="text" class="form-control" id="leaderUsername" formControlName="leaderUsername">
+                </div>
+                <div class="mb-3">
+                  <label for="startDate" class="form-label">Start Date</label>
+                  <input type="text" class="form-control" id="startDate" formControlName="startDate">
+                </div>
+                <div class="mb-3">
+                    <label for="dueDate" class="form-label">Due Date</label>
+                    <input type="text" class="form-control" id="dueDate" formControlName="dueDate">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="description" formControlName="description">
+                </div>
+                <div class="mb-3">
+                    <label for="employeesUsername" class="form-label">Employees</label>
+                    <input type="text" class="form-control" id="employeesUsername" formControlName="employeesUsername">
+                </div>
+                <div class="mb-3">
+                    <label for="projectStatus" class="form-label" >Project Status</label>
+                    <select  class="form-control" formControlName="projectStatus" id="projectStatus">
+                        <option value="IN_PROGRESS">In Progress</option>
+                        <option value="COMPLETES">Completes</option>
+                        <option value="ARCHIVED">Archived</option>
+                        <option value="AT_RISK">At Risk</option>
+                    </select>
+                </div>
+            </form>
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-warning" (click)="onSubmit()">Edit</button>
+        </div>
+      </div>
+    </div>
+  </div>
