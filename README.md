@@ -1,27 +1,76 @@
-# TaskFlowClient
+# TaskFlow
+TaskFlow is a dynamic web application designed for efficient task and project management, with a strong emphasis on collaboration and real-time updates. Crafted with a visually appealing and user-friendly UI/UX, leveraging HTML and CSS, and powered by the Angular framework, TaskFlow is the ideal solution for streamlining work processes and managing projects effectively.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.9.
 
-## Development server
+<br>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Timeline
+14 Nov 2023 - 23 Nov 2023
 
-## Code scaffolding
+<br>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Technology used
+- Angular Framework
+- TypeScript
+- HTML and CSS
+- Bootstrap
 
-## Build
+<br>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Prerequisites
+Before getting started, ensure you have the following:
 
-## Running unit tests
+- Node.js
+- npm package manager
+- Angular CLI
+- An IDE that supports Angular Framework
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+<br>
 
-## Running end-to-end tests
+## Setup
+1. Clone the Repository:
+``````
+git clone https://github.com/randH7/TaskFlow-client
+``````
+2. Install Dependencies:
+``````
+cd TaskFlow-client
+npm install
+``````
+3. Setup Server Side:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Follow the setup guide [here](https://github.com/randH7/TaskFlow-server) to configure the server side.
 
-## Further help
+4. Run the Development Server:
+``````
+ng serve
+``````
+Open your browser and navigate to http://localhost:4200/.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+> [!IMPORTANT]
+> Ensure the port number in the `application.properties` file on the server side matches the port in the service files (`auth-service.service.ts` | `project.service.ts`) on the client side.
+
+<br>
+
+## Design
+
+### Concept:
+The TaskFlow logo symbolizes the fluidity and organization of tasks in a collaborative environment. It communicates a sense of synergy and teamwork.
+
+### Logo:
+![Logo](Logo.jpg)
+I created this logo like flowing, straight lines to represent the smooth flow and organization of tasks. These lines are stylized to look like abstract task cards moving in a sequence.
+
+### Color Palette:
+![Color Palette](Colors.jpg)
+The color palette includes modern and professional colors, with teal symbolizing trust and reliability. 
+
+> [!NOTE]
+> Explore the design in Figma [here](https://www.figma.com/file/pnCnsNGpAGpFQzudHvlxjT/Untitled?type=design&node-id=12%3A762&mode=design&t=hzqUyw3uZA13I1eo-1).
+
+<br>
+
+## Future Work
+- Frontend for Employee Side: Develop the frontend for employee features.
+- Deployment: Prepare for the deployment of the TaskFlow website.
