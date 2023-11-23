@@ -23,6 +23,7 @@ import { ProjectMComponent } from './components/manager/project-m/project-m.comp
 import { EmployMComponent } from './components/manager/employ-m/employ-m.component';
 import { SettingsMComponent } from './components/manager/settings-m/settings-m.component';
 import { ProjectDetailsMComponent } from './components/manager/project-details-m/project-details-m.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 
@@ -42,7 +43,8 @@ import { ProjectDetailsMComponent } from './components/manager/project-details-m
     EmployMComponent,
     SettingsMComponent,
     TitleCasePipe,
-    ProjectDetailsMComponent
+    ProjectDetailsMComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

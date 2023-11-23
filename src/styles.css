@@ -262,6 +262,31 @@ header .right {
     width: 55%;
 }
 
+.not__found_container {
+    display: flex;
+    justify-content: start;
+}
+
+.not__found__content {
+
+}
+
+.not__found__conten h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.not__found__conten p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+.error__img {
+    width: 250px
+}
+
 /* FUTURES */ 
 #futures {
     display: flex;
