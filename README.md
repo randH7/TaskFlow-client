@@ -74,3 +74,9 @@ The color palette includes modern and professional colors, with teal symbolizing
 ## Future Work
 - Frontend for Employee Side: Develop the frontend for employee features.
 - Deployment: Prepare for the deployment of the TaskFlow website.
+
+<br>
+
+## 🔗 Extra links
+- [My Trello](https://trello.com/invite/b/tBnAEQNb/ATTI7d2d50d1771e2b1b9eb9f3e6f867bfbcA4259FB3/taskflow)
+- [My presentation](https://www.canva.com/design/DAFyVn0L2aU/UFnpNoBAmP4_N0LAnmyuBQ/edit?utm_content=DAFyVn0L2aU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
